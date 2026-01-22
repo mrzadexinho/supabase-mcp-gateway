@@ -21,9 +21,5 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Entrypoint - Supergateway wrapping the MCP server
-# Environment variables are passed at runtime:
-# - SUPABASE_URL
-# - SUPABASE_ANON_KEY  
-# - SUPABASE_SERVICE_ROLE_KEY
-# - DATABASE_URL
-ENTRYPOINT ["sh", "-c", "npx supergateway --stdio \"node /app/supabase-mcp/dist/index.js --url $SUPABASE_URL --anon-key $SUPABASE_ANON_KEY --service-key $SUPABASE_SERVICE_ROLE_KEY --db-url $DATABASE_URL\" --port $PORT --ssePath /sse --messagePath /message"]
+# Added --healthEndpoint for proxy health checks
+ENTRYPOINT ["sh", "-c", "npx supergateway --stdio \"node /app/supabase-mcp/dist/index.js --url $SUPABASE_URL --anon-key $SUPABASE_ANON_KEY --service-key $SUPABASE_SERVICE_ROLE_KEY --db-url $DATABASE_URL\" --port $PORT --ssePath /sse --messagePath /message --healthEndpoint /health"]
