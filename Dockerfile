@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 # Clone and build selfhosted-supabase-mcp
 RUN git clone https://github.com/HenkDz/selfhosted-supabase-mcp /app
 WORKDIR /app
-RUN bun install && bun run build
+RUN bun install && bun build src/index.ts --outdir dist --target node
 
 # Stage 2: Supergateway with MCP server
 FROM supercorp/supergateway:latest
