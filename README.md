@@ -30,7 +30,7 @@ Wraps [selfhosted-supabase-mcp](https://github.com/HenkDz/selfhosted-supabase-mc
 └──────────────────────────────────────────────────────────────┘
 ```
 
-## Available Tools (40+)
+## Available Tools (41+)
 
 | Category | Tools |
 |----------|-------|
